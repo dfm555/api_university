@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: subjects
+#
+#  id          :integer          not null, primary key
+#  code        :string
+#  name        :string
+#  credits     :integer          default(0)
+#  cycle       :string
+#  room        :string
+#  description :text
+#  hours       :integer          default(0)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  credits: 1
+  cycle: MyString
+  room: MyString
+  description: MyText
+  hours: 1
+
+two:
+  code: MyString
+  name: MyString
+  credits: 1
+  cycle: MyString
+  room: MyString
+  description: MyText
+  hours: 1
