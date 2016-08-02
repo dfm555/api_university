@@ -1,1 +1,0 @@
-json.array! @teacher_careers, partial: 'teacher_careers/teacher_career', as: :teacher_career

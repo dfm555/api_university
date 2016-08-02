@@ -1,1 +1,0 @@
-json.partial! "teacher_careers/teacher_career", teacher_career: @teacher_career

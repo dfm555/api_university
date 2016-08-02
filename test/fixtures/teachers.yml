@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: teachers
+#
+#  id             :integer          not null, primary key
+#  code           :string
+#  identification :string
+#  full_name      :string
+#  date_of_birth  :date
+#  email          :string
+#  office         :integer
+#  phone_number   :integer
+#  amount_hour    :decimal(, )      default(0.0)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  identification: MyString
+  full_name: MyString
+  date_of_birth: 2016-08-01
+  email: MyString
+  office: 1
+  phone_number: 1
+  amount_hour: 9.99
+
+two:
+  code: MyString
+  identification: MyString
+  full_name: MyString
+  date_of_birth: 2016-08-01
+  email: MyString
+  office: 1
+  phone_number: 1
+  amount_hour: 9.99

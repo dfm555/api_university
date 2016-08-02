@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :teacher_careers
-  resources :inscriptions
+  resources :students
+  resources :teachers
   resources :tokens
   resources :careers
   resources :subjects
