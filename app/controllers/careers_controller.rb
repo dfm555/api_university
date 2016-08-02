@@ -1,4 +1,5 @@
 class CareersController < ApplicationController
+
   before_action :set_career, only: [:show, :edit, :update, :destroy]
 
   # GET /careers
@@ -15,6 +16,8 @@ class CareersController < ApplicationController
   # GET /careers/new
   def new
     @career = Career.new
+    @subjects = Subject.all
+    @teachers = Teacher.all
   end
 
   # GET /careers/1/edit
@@ -25,9 +28,13 @@ class CareersController < ApplicationController
   # POST /careers.json
   def create
     @career = Career.new(career_params)
+    @subjects = Subject.find( params[:subject][:subject_id] )
+    @teachers = Teacher.find( params[:teacher][:teacher_id] )
 
     respond_to do |format|
       if @career.save
+        @subjects.careers << @career
+        @teachers.careers << @career
         format.html { redirect_to @career, notice: 'Career was successfully created.' }
         format.json { render :show, status: :created, location: @career }
       else

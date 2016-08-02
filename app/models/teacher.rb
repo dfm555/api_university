@@ -16,6 +16,6 @@
 #
 
 class Teacher < ActiveRecord::Base
-  has_and_belongs_to_many :career
-  has_and_belongs_to_many :subject
+  has_and_belongs_to_many :careers
+  has_and_belongs_to_many :subjects
 end
