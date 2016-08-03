@@ -31,7 +31,19 @@
     <%= f.label :semester %><br>
     <%= f.number_field :semester %>
   </div>
-  <div class="actions">
+  <%= fields_for( :subject, @subject ) do |s|  %>
+  <div class="field">
+    <%= s.label :subject %><br>
+    <%= s.collection_select :subject_id, Subject.all, :id, :name %>
+  </div>
+  <% end %>
+    <%= fields_for( :teacher, @teacher ) do |t|  %>
+        <div class="field">
+          <%= t.label :teacher %><br>
+          <%= t.collection_select :teacher_id, Teacher.all, :id, :full_name %>
+        </div>
+    <% end %>
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
