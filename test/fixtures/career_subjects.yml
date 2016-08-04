@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  career_id: 
+  career_id: 
+  subject_id: 
+
+two:
+  career_id: 
+  career_id: 
+  subject_id: 

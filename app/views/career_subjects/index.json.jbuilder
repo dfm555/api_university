@@ -1,0 +1,1 @@
+json.array! @career_subjects, partial: 'career_subjects/career_subject', as: :career_subject
