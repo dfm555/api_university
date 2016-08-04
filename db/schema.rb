@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802043054) do
+ActiveRecord::Schema.define(version: 20160804041645) do
+
+  create_table "career_subjects", id: false, force: :cascade do |t|
+    t.integer  "career_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "career_subjects", ["career_id"], name: "index_career_subjects_on_career_id"
+  add_index "career_subjects", ["subject_id"], name: "index_career_subjects_on_subject_id"
 
   create_table "careers", force: :cascade do |t|
     t.string   "code"
@@ -23,23 +33,15 @@ ActiveRecord::Schema.define(version: 20160802043054) do
     t.datetime "updated_at",                     null: false
   end
 
-  create_table "careers_subjects", id: false, force: :cascade do |t|
-    t.integer "career_id",  null: false
-    t.integer "subject_id", null: false
-  end
-
-  add_index "careers_subjects", ["career_id", "subject_id"], name: "index_careers_subjects_on_career_id_and_subject_id"
-  add_index "careers_subjects", ["subject_id", "career_id"], name: "index_careers_subjects_on_subject_id_and_career_id"
-
-  create_table "careers_teachers", id: false, force: :cascade do |t|
-    t.integer  "career_id"
-    t.integer  "teacher_id"
+  create_table "student_subjects", id: false, force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "careers_teachers", ["career_id"], name: "index_careers_teachers_on_career_id"
-  add_index "careers_teachers", ["teacher_id"], name: "index_careers_teachers_on_teacher_id"
+  add_index "student_subjects", ["student_id"], name: "index_student_subjects_on_student_id"
+  add_index "student_subjects", ["subject_id"], name: "index_student_subjects_on_subject_id"
 
   create_table "students", force: :cascade do |t|
     t.string   "code"
@@ -51,16 +53,6 @@ ActiveRecord::Schema.define(version: 20160802043054) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
-
-  create_table "students_subjects", id: false, force: :cascade do |t|
-    t.integer  "student_id"
-    t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "students_subjects", ["student_id"], name: "index_students_subjects_on_student_id"
-  add_index "students_subjects", ["subject_id"], name: "index_students_subjects_on_subject_id"
 
   create_table "subjects", force: :cascade do |t|
     t.string   "code"
@@ -74,6 +66,16 @@ ActiveRecord::Schema.define(version: 20160802043054) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "teacher_subjects", id: false, force: :cascade do |t|
+    t.integer  "teacher_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "teacher_subjects", ["subject_id"], name: "index_teacher_subjects_on_subject_id"
+  add_index "teacher_subjects", ["teacher_id"], name: "index_teacher_subjects_on_teacher_id"
+
   create_table "teachers", force: :cascade do |t|
     t.string   "code"
     t.string   "identification"
@@ -86,16 +88,6 @@ ActiveRecord::Schema.define(version: 20160802043054) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
-
-  create_table "teachers_subjects", id: false, force: :cascade do |t|
-    t.integer  "teacher_id"
-    t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "teachers_subjects", ["subject_id"], name: "index_teachers_subjects_on_subject_id"
-  add_index "teachers_subjects", ["teacher_id"], name: "index_teachers_subjects_on_teacher_id"
 
   create_table "tokens", force: :cascade do |t|
     t.string   "name"
